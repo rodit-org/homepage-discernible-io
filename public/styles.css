@@ -5,12 +5,12 @@
 }
 
 :root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #f093fb;
-    --text-dark: #2d3748;
-    --text-light: #718096;
-    --bg-light: #f7fafc;
+    --primary-color: #FF4500;
+    --secondary-color: #000000;
+    --accent-color: #FF6B35;
+    --text-dark: #1a1a1a;
+    --text-light: #4a4a4a;
+    --bg-light: #f5f5f5;
     --white: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -39,10 +39,7 @@ body {
 }
 
 .logo h1 {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--secondary-color);
     font-size: 1.8rem;
     font-weight: 700;
 }
@@ -71,7 +68,7 @@ body {
     gap: 3rem;
     padding: 4rem 2rem;
     align-items: center;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.03), rgba(0, 0, 0, 0.02));
 }
 
 .hero-content {
@@ -82,10 +79,7 @@ body {
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--secondary-color);
 }
 
 .hero-subtitle {
@@ -113,7 +107,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
     color: var(--white);
 }
 
@@ -123,14 +117,15 @@ body {
 }
 
 .btn-secondary {
-    background: var(--white);
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--white);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
 }
 
 .hero-image {
@@ -208,7 +203,7 @@ body {
 /* About Section */
 .about {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    background: linear-gradient(135deg, rgba(255, 69, 0, 0.03), rgba(0, 0, 0, 0.02));
 }
 
 .about-content {
@@ -287,7 +282,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 /* Responsive Design */
