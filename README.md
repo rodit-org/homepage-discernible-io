@@ -4,10 +4,11 @@ A modern, responsive static homepage for Discernible.io built with HTML, CSS, an
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, gradient-based design with smooth animations
+- **Modern Design**: Clean design with brand colors (black, white, and orange #FF4500)
 - **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **Interactive Elements**: Smooth scrolling, form handling, and scroll animations
 - **Performance Optimized**: Lightweight static site with no build dependencies
+- **Auto-Deployment**: Automatic deployment to Apache on every git commit
 
 ## 📁 Project Structure
 
@@ -73,8 +74,32 @@ php -S localhost:8080
 ## 🎨 Customization
 
 - **Colors**: Edit CSS variables in `public/styles.css` under `:root`
+  - Primary: `#FF4500` (Orange from logo)
+  - Secondary: `#000000` (Black from logo)
+  - Accent: `#FF6B35` (Lighter orange)
 - **Content**: Modify text and structure in `public/index.html`
 - **Functionality**: Add or modify JavaScript in `public/script.js`
+
+## 🔄 Automatic Deployment
+
+This repository is configured to automatically deploy changes to the Apache web server on every commit.
+
+### How it works:
+1. Make changes to files in the `public/` directory
+2. Commit your changes: `git add . && git commit -m "Your message"`
+3. The post-commit hook automatically runs `deploy.sh`
+4. Files are copied to `/var/www/domains/discernible.io/public_html/`
+5. Apache is reloaded to serve the new content
+
+### Manual deployment:
+```bash
+./deploy.sh
+```
+
+### Deployment logs:
+```bash
+tail -f deploy.log
+```
 
 ## 🔒 SSL/TLS Certificate Setup (Apache2)
 
