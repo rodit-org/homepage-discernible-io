@@ -37,6 +37,7 @@ jobs:
           cp public/styles.css gh-pages/
           cp public/script.js gh-pages/
           cp public/logo.png gh-pages/
+          cp public/CNAME gh-pages/
           touch gh-pages/.nojekyll
       
       - name: Upload artifact

@@ -95,10 +95,18 @@ These are defined in `public/styles.css` under the `:root` selector.
 - Deploys only web assets (HTML, CSS, JS, images) - `.htaccess` is excluded
 - `.nojekyll` file is automatically added to prevent Jekyll processing
 
+### Custom Domain Configuration
+- **Primary domain**: `discernible.io`
+- **CNAME file**: `public/CNAME` contains the custom domain
+- **DNS**: Already configured to point to GitHub Pages IPs
+- **HTTPS**: Automatically provisioned by GitHub (Let's Encrypt)
+- **Certificate provisioning time**: 5-10 minutes after first deployment
+
 ### Important GitHub Pages Notes
 - GitHub Pages does **not** support `.htaccess` files
 - Security headers and caching rules from `.htaccess` won't apply on GitHub Pages
 - GitHub Pages uses its own server configuration
+- HTTPS is automatically enabled for custom domains (after certificate provisioning)
 
 ## Important Notes
 
