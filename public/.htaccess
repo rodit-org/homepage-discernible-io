@@ -50,8 +50,8 @@ FileETag MTime Size
 #     </FilesMatch>
 # </IfModule>
 
-# Protect sensitive files
-<FilesMatch "^\.">
+# Protect sensitive files (but allow .nojekyll for GitHub Pages)
+<FilesMatch "^\.((?!nojekyll).)*$">
     Require all denied
 </FilesMatch>
 
