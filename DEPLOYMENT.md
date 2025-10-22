@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository automatically deploys to Apache web server at `/var/www/domains/discernible.io/public_html/` on every git commit.
+This repository supports two deployment targets:
+1. **Apache web server** at `/var/www/domains/discernible.io/public_html/` (with `.htaccess` support)
+2. **GitHub Pages** at `https://rodit-org.github.io/homepage-discernible-io/` (without `.htaccess`)
 
 ## Automatic Deployment
 
@@ -85,9 +87,22 @@ These are defined in `public/styles.css` under the `:root` selector.
 └── (Same files as above, deployed automatically)
 ```
 
+## GitHub Pages Deployment
+
+### Automatic Deployment
+- Pushes to `main` branch automatically trigger GitHub Pages deployment
+- GitHub Actions workflow at `.github/workflows/deploy.yml`
+- Deploys only web assets (HTML, CSS, JS, images) - `.htaccess` is excluded
+- `.nojekyll` file is automatically added to prevent Jekyll processing
+
+### Important GitHub Pages Notes
+- GitHub Pages does **not** support `.htaccess` files
+- Security headers and caching rules from `.htaccess` won't apply on GitHub Pages
+- GitHub Pages uses its own server configuration
+
 ## Important Notes
 
 1. **Always edit files in `/home/icarus40/homepage-discernible-io/public/`**, not in the Apache directory
-2. **Commit your changes** to trigger automatic deployment
-3. **Check deploy.log** if something doesn't work
-4. The `.htaccess` file disables caching during development (remove for production)
+2. **Commit your changes** to trigger automatic deployment (both Apache and GitHub Pages)
+3. **Check deploy.log** for Apache deployment issues
+4. The `.htaccess` file only works on Apache, not on GitHub Pages
