@@ -8,42 +8,59 @@ A modern, responsive static homepage for Discernible.io built with HTML, CSS, an
 - **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **Interactive Elements**: Smooth scrolling, form handling, and scroll animations
 - **Performance Optimized**: Lightweight static site with no build dependencies
-- **Auto-Deployment**: Automatic deployment to Apache on every git commit
+- **Auto-Deployment**: Automatic deployment to GitHub Pages via GitHub Actions
 
 ## 📁 Project Structure
 
 ```
 homepage-discernible-io/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml  # GitHub Actions deployment workflow
 ├── public/
 │   ├── index.html      # Main HTML file
 │   ├── styles.css      # CSS styling
 │   └── script.js       # JavaScript functionality
-├── certs/              # SSL/TLS certificate management
+├── certs/              # SSL/TLS certificate management (legacy)
 │   ├── README.md       # Complete certificate setup guide
 │   ├── setup-all.sh    # Automated setup script
 │   └── ...             # Management scripts and configs
-├── .do/
-│   └── app.yaml        # Digital Ocean App Platform configuration
 ├── package.json        # Node.js package configuration
 └── README.md          # This file
 ```
 
-## 🌐 Deployment on Digital Ocean App Platform
+## 🌐 Deployment on GitHub Pages
 
-### Method 1: Using the Web Interface
+This site is configured to automatically deploy to GitHub Pages using GitHub Actions.
 
-1. Go to [Digital Ocean App Platform](https://cloud.digitalocean.com/apps)
-2. Click "Create App"
-3. Select your GitHub repository
-4. Digital Ocean will automatically detect the `package.json` and configure as a static site
-5. Set the following in the configuration:
-   - **Source Directory**: `/public`
-   - **Output Directory**: `/public`
-   - Click "Next" and deploy
+### Automatic Deployment
 
-### Method 2: Using the App Spec (app.yaml)
+Every push to the `main` branch automatically triggers deployment via the GitHub Actions workflow (`.github/workflows/deploy.yml`).
 
-The `.do/app.yaml` file is already configured. Digital Ocean will automatically use this configuration when deploying.
+### Initial Setup
+
+1. Go to your repository on GitHub: `https://github.com/rodit-org/homepage-discernible-io`
+2. Navigate to **Settings** → **Pages**
+3. Under **Source**, select **GitHub Actions**
+4. Push your changes to the `main` branch
+5. The workflow will automatically deploy your site
+
+Your site will be available at: `https://rodit-org.github.io/homepage-discernible-io/`
+
+### Custom Domain (Optional)
+
+To use a custom domain like `discernible.io`:
+
+1. In your repository, go to **Settings** → **Pages**
+2. Under **Custom domain**, enter `discernible.io`
+3. Add the following DNS records at your domain registrar:
+   - `A` record: `185.199.108.153`
+   - `A` record: `185.199.109.153`
+   - `A` record: `185.199.110.153`
+   - `A` record: `185.199.111.153`
+   - `CNAME` record for `www`: `rodit-org.github.io`
+4. Wait for DNS propagation (can take up to 24 hours)
+5. Enable **Enforce HTTPS** in GitHub Pages settings
 
 ## 🏃 Running Locally
 
@@ -80,26 +97,17 @@ php -S localhost:8080
 - **Content**: Modify text and structure in `public/index.html`
 - **Functionality**: Add or modify JavaScript in `public/script.js`
 
-## 🔄 Automatic Deployment
+## 🔄 Deployment Workflow
 
-This repository is configured to automatically deploy changes to the Apache web server on every commit.
-
-### How it works:
+### GitHub Pages (Current)
 1. Make changes to files in the `public/` directory
 2. Commit your changes: `git add . && git commit -m "Your message"`
-3. The post-commit hook automatically runs `deploy.sh`
-4. Files are copied to `/var/www/domains/discernible.io/public_html/`
-5. Apache is reloaded to serve the new content
+3. Push to GitHub: `git push origin main`
+4. GitHub Actions automatically deploys to GitHub Pages
+5. Site is live at `https://rodit-org.github.io/homepage-discernible-io/`
 
-### Manual deployment:
-```bash
-./deploy.sh
-```
-
-### Deployment logs:
-```bash
-tail -f deploy.log
-```
+### Legacy Apache Deployment
+The `deploy.sh` script and Apache configuration are kept for reference but are no longer the primary deployment method.
 
 ## 🔒 SSL/TLS Certificate Setup (Apache2)
 
