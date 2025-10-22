@@ -1,5 +1,15 @@
 # GitHub Pages Custom Domain Setup for discernible.io
 
+## ⚠️ CURRENT ISSUE: NotServedByPagesError
+
+**Error**: "Domain does not resolve to the GitHub Pages server"
+
+**Solution**: See **[GITHUB-PAGES-FIX.md](GITHUB-PAGES-FIX.md)** for detailed fix instructions.
+
+**Quick Fix**: Go to [Repository Settings → Pages](https://github.com/rodit-org/homepage-discernible-io/settings/pages) and configure the custom domain `discernible.io` in the "Custom domain" field.
+
+---
+
 ## Current DNS Configuration ✅
 
 Your DNS is correctly configured:
@@ -14,21 +24,27 @@ www.discernible.io  → CNAME to rodit-org.github.io
 ### 1. CNAME File ✅
 - Created `public/CNAME` with content: `discernible.io`
 - This file tells GitHub Pages which custom domain to use
+- **Status**: Committed and pushed
 
-### 2. Deploy the CNAME File
-Commit and push the changes:
+### 2. Deploy the CNAME File ✅
 ```bash
 git add public/CNAME .github/workflows/deploy.yml
 git commit -m "feat: add CNAME for custom domain discernible.io"
 git push origin main
 ```
+**Status**: Completed
 
-### 3. Verify in GitHub Repository Settings
-After deployment, check:
+### 3. Configure Custom Domain in GitHub Settings ⚠️ **ACTION REQUIRED**
+This is the missing step causing the NotServedByPagesError:
+
 1. Go to: https://github.com/rodit-org/homepage-discernible-io/settings/pages
-2. Under "Custom domain", you should see: `discernible.io`
-3. Wait for the "Enforce HTTPS" checkbox to become available (usually 5-10 minutes)
-4. Enable "Enforce HTTPS"
+2. Under "Build and deployment" → "Source": Verify it's set to **"GitHub Actions"**
+3. Under "Custom domain":
+   - Enter: `discernible.io`
+   - Click **Save**
+4. Wait for DNS check to complete (1-5 minutes)
+5. Once verified, wait for HTTPS certificate (5-15 minutes)
+6. Enable "Enforce HTTPS"
 
 ## HTTPS Certificate Provisioning
 
