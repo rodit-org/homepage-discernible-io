@@ -219,6 +219,82 @@ body {
     line-height: 1.8;
 }
 
+/* Demo API Section */
+.demo-api {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+    color: var(--white);
+}
+
+.demo-api .section-title {
+    color: var(--white);
+}
+
+.demo-api-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.demo-api-highlight {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 3rem;
+    margin-top: 2rem;
+}
+
+.demo-api-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.demo-api-highlight h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.demo-api-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.demo-api .btn-primary {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.demo-api .btn-primary:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.demo-api .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.demo-api .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
 /* Contact Section */
 .contact {
     padding: 4rem 2rem;
@@ -314,5 +390,17 @@ footer {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .demo-api-highlight {
+        padding: 2rem 1.5rem;
+    }
+
+    .demo-api-highlight h3 {
+        font-size: 1.5rem;
+    }
+
+    .demo-api-description {
+        font-size: 1rem;
     }
 }
