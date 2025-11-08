@@ -4,9 +4,16 @@
   "description": "Static homepage for discernible.io",
   "scripts": {
     "start": "npx http-server ./public -p 8080",
-    "build": "echo 'No build step required for static site'"
+    "build": "echo 'No build step required for static site'",
+    "generate-banner": "node generate-banner.js"
   },
-  "keywords": ["static", "homepage"],
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "keywords": [
+    "static",
+    "homepage"
+  ],
   "author": "",
   "license": "MIT"
 }

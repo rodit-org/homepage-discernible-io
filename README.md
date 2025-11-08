@@ -1,5 +1,7 @@
 # homepage-discernible-io
 
+![discernible.io Banner](./public/banner.png)
+
 A modern, responsive static homepage for Discernible.io built with HTML, CSS, and JavaScript.
 
 ## 🚀 Features
@@ -20,11 +22,15 @@ homepage-discernible-io/
 ├── public/
 │   ├── index.html      # Main HTML file
 │   ├── styles.css      # CSS styling
-│   └── script.js       # JavaScript functionality
+│   ├── script.js       # JavaScript functionality
+│   ├── logo.png        # Logo image
+│   ├── banner.png      # Banner image (1200x630px)
+│   └── banner.svg      # Banner source (SVG)
 ├── certs/              # SSL/TLS certificate management (legacy)
 │   ├── README.md       # Complete certificate setup guide
 │   ├── setup-all.sh    # Automated setup script
 │   └── ...             # Management scripts and configs
+├── generate-banner.js  # Script to generate banner.png from banner.svg
 ├── package.json        # Node.js package configuration
 └── README.md          # This file
 ```
