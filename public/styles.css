@@ -63,15 +63,15 @@ body {
 
 /* Hero Section */
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    justify-content: center;
     padding: 4rem 2rem;
-    align-items: center;
     background: var(--white);
 }
 
 .hero-content {
+    max-width: 800px;
+    text-align: center;
     padding: 2rem 0;
 }
 
@@ -92,6 +92,7 @@ body {
 .cta-buttons {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .btn {
@@ -370,11 +371,6 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
     .hero-title {
         font-size: 2rem;
     }
