@@ -222,12 +222,12 @@ body {
 /* Demo API Section */
 .demo-api {
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
-    color: var(--white);
+    background: #fafafa;
+    color: var(--text-dark);
 }
 
 .demo-api .section-title {
-    color: var(--white);
+    color: var(--text-dark);
 }
 
 .demo-api-content {
@@ -237,12 +237,18 @@ body {
 }
 
 .demo-api-highlight {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
+    background: var(--white);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
     padding: 3rem;
     margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.demo-api-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .demo-api-icon {
@@ -264,35 +270,36 @@ body {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: var(--white);
+    color: var(--text-dark);
 }
 
 .demo-api-description {
     font-size: 1.125rem;
     line-height: 1.8;
     margin: 2rem 0 2.5rem 0;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--text-light);
 }
 
 .demo-api .btn-primary {
-    background: var(--white);
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: var(--white);
 }
 
 .demo-api .btn-primary:hover {
-    background: var(--secondary-color);
-    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .demo-api .btn-secondary {
-    background: transparent;
+    background: var(--secondary-color);
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 2px solid var(--secondary-color);
 }
 
 .demo-api .btn-secondary:hover {
     background: var(--white);
-    color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
 }
 
 /* Contact Section */
