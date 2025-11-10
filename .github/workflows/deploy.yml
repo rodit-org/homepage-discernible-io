@@ -37,7 +37,16 @@ jobs:
           cp public/styles.css gh-pages/
           cp public/script.js gh-pages/
           cp public/logo.png gh-pages/
+          cp public/banner.png gh-pages/
           cp public/CNAME gh-pages/
+          cp public/.htaccess gh-pages/
+          cp public/favicon.ico gh-pages/
+          cp public/favicon.svg gh-pages/
+          cp public/favicon-*.png gh-pages/
+          cp public/android-chrome-*.png gh-pages/
+          cp public/apple-touch-icon.png gh-pages/
+          cp public/site.webmanifest gh-pages/
+          cp public/browserconfig.xml gh-pages/
           touch gh-pages/.nojekyll
       
       - name: Upload artifact
