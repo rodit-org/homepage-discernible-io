@@ -49,10 +49,11 @@ async function generateFavicon() {
     console.log(`✓ Generated favicon-${size}x${size}.png`);
   }
 
-  // Generate the main favicon.ico (16x16 and 32x32)
-  const svg16 = Buffer.from(createSVG(16));
-  await sharp(svg16)
-    .resize(16, 16)
+  // Generate the main favicon.ico (keep as PNG for now, browsers support it)
+  // Note: For true .ico format, we'd need a different library
+  const svg32 = Buffer.from(createSVG(32));
+  await sharp(svg32)
+    .resize(32, 32)
     .png()
     .toFile(path.join(publicDir, 'favicon.ico'));
   console.log('✓ Generated favicon.ico');
