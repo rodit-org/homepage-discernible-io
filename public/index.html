@@ -60,6 +60,7 @@
  <li><a href="#use-cases">Use Cases</a></li>
  <li><a href="#get-started">Get Started</a></li>
  <li><a href="developers.html">Developers</a></li>
+ <li><a href="lastcradle.html">Last Cradle</a></li>
  <li><a href="#contact">Contact</a></li>
  </ul>
  </nav>
@@ -96,7 +97,7 @@
  <div class="cta-buttons hero-cta">
  <a class="btn btn-primary" href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Get a Passport</a>
  <a class="btn btn-secondary" href="https://verify.identyclaw.com" target="_blank" rel="noopener">Verify a proof</a>
- <a class="btn btn-outline" href="https://github.com/discernible-io/identyclaw-agents" target="_blank" rel="noopener">Deploy an agent</a>
+ <a class="btn btn-outline" href="#get-started">Deploy an agent</a>
  </div>
  </div>
  </div>
@@ -168,7 +169,7 @@
  </div>
  <div class="feature-card">
  <h3>OpenClaw &amp; collaboration</h3>
- <p>The <a href="https://github.com/discernible-io/openclaw-identyclaw-plugin" target="_blank" rel="noopener">IdentyClaw tools plugin</a> handles API login and HOLA; the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> carries peer tasks; the <a href="https://github.com/discernible-io/openclaw-identyclaw-webhooks-plugin" target="_blank" rel="noopener">webhooks plugin</a> verifies RODiT-signed ingress. Deploy all three with TLS via the <a href="https://github.com/discernible-io/identyclaw-agents" target="_blank" rel="noopener">identyclaw-agents</a> template.</p>
+ <p>The <a href="https://github.com/discernible-io/openclaw-identyclaw-plugin" target="_blank" rel="noopener">IdentyClaw tools plugin</a> handles API login and HOLA; the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> carries peer tasks; the <a href="https://github.com/discernible-io/openclaw-identyclaw-webhooks-plugin" target="_blank" rel="noopener">webhooks plugin</a> verifies RODiT-signed ingress. Deploy the full stack with TLS via the <a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> template—or the parallel <a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">Hermes</a> and <a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">IronClaw</a> operators.</p>
  </div>
  </div>
  </div>
@@ -177,57 +178,127 @@
  <section id="get-started" class="about enroll-section">
  <div class="section-inner">
  <h2 class="section-title">Get Started</h2>
- <p class="section-lead">Every path starts with a NEAR account and a Passport mint—you do not register with IdentyClaw to exist. Plugin installs, deploy templates, SDKs, and API docs are on the <a href="developers.html">Developers</a> page.</p>
+ <p class="section-lead">Mint a Passport <strong>once</strong> on NEAR—you do not register with IdentyClaw to exist. The Passport <em>is</em> the credential for <a href="https://api.identyclaw.com" target="_blank" rel="noopener">IdentyClaw home</a> and any federated peer built from <a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener">api-idc</a> (no vendor API keys). Pick a rootless Podman template below; ClawHub plugins, SDKs, and API docs are on the <a href="developers.html">Developers</a> page. Enrollment contract: <a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><code>/.well-known/enrollment</code></a>.</p>
 
  <div class="enroll-paths">
  <div class="enroll-path">
- <h3 class="enroll-path-title">OpenClaw — plugins</h3>
+ <h3 class="enroll-path-title">OpenClaw</h3>
+ <p class="enroll-path-lead"><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> — Podman multi-agent gateway, IdentyClaw plugins, A2A, optional nginx TLS.</p>
  <ol class="enroll-steps">
  <li>
  <span class="step-num">1</span>
  <div>
- <h3>Install IdentyClaw</h3>
- <p>Add the plugin and skill to your existing OpenClaw gateway via <a href="https://clawhub.ai/plugins/@identyclaw/openclaw-identyclaw-plugin" target="_blank" rel="noopener">ClawHub</a>.</p>
+ <h3>Install the template</h3>
+ <p>Clone the repo, run <code>./identyclaw.sh init</code>, edit <code>env.local</code>, then <code>build-image</code> and <code>start all</code>. Operator reference: <code>OPERATOR.md</code>.</p>
  </div>
  </li>
  <li>
  <span class="step-num">2</span>
  <div>
- <h3>Generate a NEAR account</h3>
- <p>Create credentials with the plugin or <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a>. Keep keys in local storage — never paste them into chat.</p>
+ <h3>Create a NEAR implicit account</h3>
+ <p>Generate credentials in the agent app dir (host <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a> or in-container <code>idcp-wallet.sh</code>), then <code>./identyclaw.sh near-activate &lt;id&gt; &lt;hex&gt;</code>. Keep keys on disk only—never paste them into chat.</p>
  </div>
  </li>
  <li>
  <span class="step-num">3</span>
  <div>
- <h3>Purchase your Passport</h3>
- <p>Mint with your NEAR account ID at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a>, set <code>accountid</code> and <code>nearPrivateKey</code> in OpenClaw config, then confirm your Passport is active.</p>
+ <h3>Craft the Passport</h3>
+ <p>Fund a checkout wallet (e.g. HOT), open the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a>, and mint to the agent’s <strong>64-char hex</strong> recipient. Restart the agent to bind home identity.</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">4</span>
+ <div>
+ <h3>Home session, then peers</h3>
+ <p>Confirm with Control UI / <code>identyclaw_get_my_identity</code>. For each federated peer (e.g. <code>api.lastcradle.io</code>), call <code>identyclaw_ensure_session({ apiEndpoint })</code>—remint a JWT <em>per peer</em>; never send the home JWT elsewhere.</p>
  </div>
  </li>
  </ol>
  </div>
  <div class="enroll-path">
- <h3 class="enroll-path-title">Hermes agent framework, MCP &amp; custom agents</h3>
+ <h3 class="enroll-path-title">Hermes</h3>
+ <p class="enroll-path-lead"><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">hermes-agent</a> — Nous Hermes runtime with Podman operator and <code>idcp</code> Passport CLI.</p>
  <ol class="enroll-steps">
  <li>
  <span class="step-num">1</span>
  <div>
- <h3>Generate a NEAR account</h3>
- <p>Install <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a> and write credentials to persistent storage.</p>
+ <h3>Install the template</h3>
+ <p>Clone the fork, <code>cd deploy</code>, then <code>./hermes.sh init</code>, <code>setup</code>, <code>start</code>, and <code>idcp-install</code>. Prefer this path over the upstream stock installer when you want IdentyClaw.</p>
  </div>
  </li>
  <li>
  <span class="step-num">2</span>
  <div>
- <h3>Purchase your Passport</h3>
- <p>Mint with your NEAR account ID and chosen role and traits at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a>.</p>
+ <h3>Enroll a NEAR account</h3>
+ <p>Run <code>./hermes.sh idcp enroll</code>. It writes credentials under <code>~/hermes-agents-app/secrets/near-credentials/</code> and prints the hex <code>implicit_account_id</code>.</p>
  </div>
  </li>
  <li>
  <span class="step-num">3</span>
  <div>
- <h3>Login and integrate</h3>
- <p>Sign a login timestamp for a JWT — see the <a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">API cheat sheet</a> or <a href="developers.html#api-docs">Developers API docs</a> for curl examples — then use the <a href="https://github.com/discernible-io/sdk" target="_blank" rel="noopener">RODiT SDK</a> for API access and HOLA verification.</p>
+ <h3>Craft the Passport</h3>
+ <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> with that hex id as the recipient. Paying wallet and agent key file stay separate.</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">4</span>
+ <div>
+ <h3>Home session, then peers</h3>
+ <p><code>./hermes.sh idcp ensure_session</code> (and <code>idcp me</code>) for home. For a peer: <code>idcp ensure_session --base https://api.lastcradle.io</code>, then <code>idcp request</code> against that host only.</p>
+ </div>
+ </li>
+ </ol>
+ </div>
+ <div class="enroll-path">
+ <h3 class="enroll-path-title">IronClaw</h3>
+ <p class="enroll-path-lead"><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">ironclaw-idc</a> — privacy-focused Agent OS with the same IdentyClaw Podman / Passport enrollment spine.</p>
+ <ol class="enroll-steps">
+ <li>
+ <span class="step-num">1</span>
+ <div>
+ <h3>Install the template</h3>
+ <p>Clone the Discernible IronClaw fork and follow its deploy operator for rootless Podman (TLS and webhooks as documented in-repo).</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">2</span>
+ <div>
+ <h3>Create a NEAR implicit account</h3>
+ <p>Generate credentials with <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a> (or the template’s enroll helper) into persistent secrets storage—mode <code>0600</code>, never in chat.</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">3</span>
+ <div>
+ <h3>Craft the Passport</h3>
+ <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> to the agent’s 64-char hex account, then activate the home session against <code>api.identyclaw.com</code>.</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">4</span>
+ <div>
+ <h3>Federated peers</h3>
+ <p>Same login contract as the other templates: challenge → sign → peer JWT per <code>apiEndpoint</code>. Shared enrollment detail: <a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><code>/.well-known/enrollment</code></a>.</p>
+ </div>
+ </li>
+ </ol>
+ </div>
+ <div class="enroll-path">
+ <h3 class="enroll-path-title">Existing gateway or custom agent</h3>
+ <p class="enroll-path-lead">Already running OpenClaw? Install plugins via <a href="https://clawhub.ai/plugins/@identyclaw/openclaw-identyclaw-plugin" target="_blank" rel="noopener">ClawHub</a>. Building your own stack? Use <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a>, the <a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a>, and the <a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">API cheat sheet</a>.</p>
+ <ol class="enroll-steps">
+ <li>
+ <span class="step-num">1</span>
+ <div>
+ <h3>NEAR account + Passport</h3>
+ <p>Same mint path: implicit account → <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a>.</p>
+ </div>
+ </li>
+ <li>
+ <span class="step-num">2</span>
+ <div>
+ <h3>Login</h3>
+ <p><code>GET /api/login/timestamp</code> → sign → <code>POST /api/login</code> → Bearer JWT. Remint per peer host. See <a href="developers.html#api-docs">Developers API docs</a>.</p>
  </div>
  </li>
  </ol>
@@ -236,6 +307,7 @@
  <div class="cta-buttons">
  <a class="btn btn-primary" href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a>
  <a class="btn btn-secondary" href="https://verify.identyclaw.com" target="_blank" rel="noopener">Verify a proof</a>
+ <a class="btn btn-outline" href="developers.html">Developers</a>
  </div>
  </div>
  </section>

@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="IdentyClaw open source agent stack — deploy OpenClaw agents, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
+ <meta name="description" content="IdentyClaw open source agent stack — deploy OpenClaw, Hermes, or IronClaw templates, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
  <title>Developers — IdentyClaw | Discernible.io</title>
 
  <!-- Open Graph (LinkedIn, Facebook, etc.) -->
@@ -11,7 +11,7 @@
  <meta property="og:url" content="https://www.discernible.io/developers.html">
  <meta property="og:site_name" content="Discernible.io">
  <meta property="og:title" content="Developers — IdentyClaw | Discernible.io">
- <meta property="og:description" content="IdentyClaw open source agent stack — deploy OpenClaw agents, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
+ <meta property="og:description" content="IdentyClaw open source agent stack — deploy OpenClaw, Hermes, or IronClaw templates, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
  <meta property="og:image" content="https://www.discernible.io/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
  <!-- Twitter -->
  <meta name="twitter:card" content="summary_large_image">
  <meta name="twitter:title" content="Developers — IdentyClaw | Discernible.io">
- <meta name="twitter:description" content="IdentyClaw open source agent stack — deploy OpenClaw agents, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
+ <meta name="twitter:description" content="IdentyClaw open source agent stack — deploy OpenClaw, Hermes, or IronClaw templates, install plugins, integrate SDKs, and learn how RODiT powers cryptographic identity on NEAR.">
  <meta name="twitter:image" content="https://www.discernible.io/og-image.png">
  <meta name="twitter:image:alt" content="Discernible.io logo">
 
@@ -59,8 +59,8 @@
  <li><a href="index.html#why">Why IdentyClaw</a></li>
  <li><a href="index.html#use-cases">Use Cases</a></li>
  <li><a href="index.html#get-started">Get Started</a></li>
- <li><a href="#api-docs">API docs</a></li>
- <li><a href="#rodit">Powered by RODiT</a></li>
+ <li><a href="developers.html" aria-current="page">Developers</a></li>
+ <li><a href="lastcradle.html">Last Cradle</a></li>
  <li><a href="#contact">Contact</a></li>
  </ul>
  </nav>
@@ -70,41 +70,43 @@
  <section id="developers" class="features developers-section">
  <div class="section-inner">
  <h2 class="section-title">Open source agent stack</h2>
- <p class="section-lead">Mint with a NEAR key, prove with <abbr title="Hand-Off Login Authentication">HOLA</abbr> signed proofs, collaborate over A2A and RODiT-signed webhooks — deploy the full stack with our open template or install plugins à la carte.</p>
+ <p class="section-lead">Mint with a NEAR key, prove with <abbr title="Hand-Off Login Authentication">HOLA</abbr> signed proofs, collaborate over A2A and RODiT-signed webhooks — deploy via a Podman template (OpenClaw, Hermes, or IronClaw) or install plugins and SDKs à la carte. Jump to <a href="#api-docs">API docs</a> or <a href="#rodit">Powered by RODiT</a>.</p>
  <div class="dev-tiers">
  <div class="dev-tier">
- <h3 class="dev-tier-title">Deploy an OpenClaw agent with A2A out of the box</h3>
- <p class="dev-tier-desc">Production OpenClaw + nginx TLS + Podman + CI. Installs all IdentyClaw plugins, separates secrets from git, and validates with <code>./identyclaw.sh test</code>.</p>
+ <h3 class="dev-tier-title">Deploy with a Podman template</h3>
+ <p class="dev-tier-desc">Rootless Podman operators with IdentyClaw Passport enrollment, optional nginx TLS, and sibling app dirs that keep secrets out of git. Same mint-once Passport for home and federated peers (<a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener">api-idc</a>).</p>
  <ul class="dev-repo-list">
- <li><a href="https://github.com/discernible-io/identyclaw-agents" target="_blank" rel="noopener"><strong>identyclaw-agents</strong></a> — operator template (<code>./identyclaw.sh init</code>, deploy, test)</li>
+ <li><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener"><strong>openclaw-agents</strong></a> — OpenClaw multi-agent gateway (<code>./identyclaw.sh init</code>, plugins, A2A, <code>./identyclaw.sh test</code>)</li>
+ <li><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener"><strong>hermes-agent</strong></a> — Hermes fork + <code>deploy/hermes.sh</code> and <code>idcp</code> (enroll, ensure_session, HOLA)</li>
+ <li><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener"><strong>ironclaw-idc</strong></a> — IronClaw Agent OS with the same Passport enrollment spine</li>
  </ul>
  <ol class="enroll-steps dev-deploy-steps">
  <li>
  <span class="step-num">1</span>
  <div>
  <h3>Initialize the template</h3>
- <p>Clone identyclaw-agents and run <code>./identyclaw.sh init</code>.</p>
+ <p>Clone your runtime of choice and run its init (OpenClaw: <code>./identyclaw.sh init</code>; Hermes: <code>./deploy/hermes.sh init</code>).</p>
  </div>
  </li>
  <li>
  <span class="step-num">2</span>
  <div>
- <h3>Deploy, generate NEAR account, purchase Passport</h3>
- <p>Run the Podman deploy script, create credentials, and mint your Passport.</p>
+ <h3>NEAR account + Passport</h3>
+ <p>Generate an implicit account, mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> to the 64-char hex recipient, activate the home session.</p>
  </div>
  </li>
  <li>
  <span class="step-num">3</span>
  <div>
- <h3>Validate</h3>
- <p>Run <code>./identyclaw.sh test</code> once credentials are configured.</p>
+ <h3>Peers without API keys</h3>
+ <p>Remint a JWT per peer <code>apiEndpoint</code> (<code>identyclaw_ensure_session</code> / <code>idcp ensure_session --base</code>). Never reuse a home JWT on another host.</p>
  </div>
  </li>
  </ol>
  </div>
  <div class="dev-tier">
  <h3 class="dev-tier-title">OpenClaw plugins</h3>
- <p class="dev-tier-desc">Install individually on any OpenClaw gateway via ClawHub or GitHub. Share NEAR Passport credentials across plugins on the same host.</p>
+ <p class="dev-tier-desc">Install individually on any OpenClaw gateway via ClawHub or GitHub. Share NEAR Passport credentials across plugins on the same host. The <a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> template installs all three.</p>
  <ul class="dev-repo-list">
  <li><a href="https://github.com/discernible-io/openclaw-identyclaw-plugin" target="_blank" rel="noopener"><strong>openclaw-identyclaw-plugin</strong></a> — API login, HOLA, identity, DID (<code>identyclaw_*</code> tools) · ClawHub: <code>@identyclaw/openclaw-identyclaw-plugin</code></li>
  <li><a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener"><strong>openclaw-a2a-idc-plugin</strong></a> — A2A peer messaging with Passport JWTs (<code>a2a_*</code> tools) · ClawHub: <code>@identyclaw/openclaw-a2a-plugin</code></li>
@@ -112,15 +114,17 @@
  </ul>
  </div>
  <div class="dev-tier">
- <h3 class="dev-tier-title">SDKs, API &amp; tooling</h3>
- <p class="dev-tier-desc">Libraries and CLIs for custom backends, browser clients, HOLA verification, and NEAR implicit account generation. Human-readable API reference at <a href="https://api.identyclaw.com/docs" target="_blank" rel="noopener">api.identyclaw.com/docs</a>; agent-oriented docs via MCP.</p>
+ <h3 class="dev-tier-title">SDKs, peer APIs &amp; test harness</h3>
+ <p class="dev-tier-desc">Build RODiT-authenticated APIs, mint federated peers, and gate deploys against live contracts. Human-readable API reference at <a href="https://api.identyclaw.com/docs" target="_blank" rel="noopener">api.identyclaw.com/docs</a>; agent-oriented docs via MCP.</p>
  <ul class="dev-repo-list">
- <li><a href="https://github.com/discernible-io/sdk" target="_blank" rel="noopener"><strong>sdk</strong></a> — <code>@rodit/rodit-auth-be</code>, <code>@rodit/rodit-auth-fe</code>, <code>@rodit/verify-hola</code></li>
+ <li><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener"><strong>rodit-sdk</strong></a> — monorepo for <code>@rodit/rodit-auth-be</code> (Express login/JWT/webhooks), <code>@rodit/rodit-auth-fe</code> (browser/NEP-413), and <code>@rodit/verify-hola</code></li>
+ <li><a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener"><strong>api-idc</strong></a> — federated peer API template on the same Passport login contract (powers <code>api.identyclaw.com</code> and siblings)</li>
+ <li><a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener"><strong>api-test-scaffold</strong></a> — client-side RODiT test harness: production smoke (<code>main</code>), full home matrix (<code>development</code>), and SLC game API (<code>slc</code>)</li>
  <li><a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener"><strong>gennearaccount</strong></a> — C CLI for NEAR implicit accounts (get-started step 1)</li>
  <li><a href="https://github.com/discernible-io/idclawserver-idc" target="_blank" rel="noopener"><strong>idclawserver-idc</strong></a> — open-source API server, MCP resources, and OpenAPI spec</li>
  <li><a href="https://verify.identyclaw.com" target="_blank" rel="noopener"><strong>verify.identyclaw.com</strong></a> — web UI for HOLA verification (pairs with <code>@rodit/verify-hola</code>)</li>
  <li><a href="https://api.identyclaw.com/docs" target="_blank" rel="noopener"><strong>API docs (browser)</strong></a> — OpenAPI reference + links to guides</li>
- <li><a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><strong>Get started guide</strong></a> — NEAR account + Passport minting for non-OpenClaw agents</li>
+ <li><a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><strong>Enrollment contract</strong></a> — NEAR account + Passport minting (shared across templates)</li>
  </ul>
  </div>
  </div>
@@ -131,7 +135,7 @@
         ↓
   OpenClaw gateway + IdentyClaw tools plugin (HOLA, API login)</code></pre>
  <div class="cta-buttons">
- <a class="btn btn-primary" href="https://github.com/discernible-io/identyclaw-agents" target="_blank" rel="noopener">View deploy template</a>
+ <a class="btn btn-primary" href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">OpenClaw template</a>
  <a class="btn btn-secondary" href="https://github.com/discernible-io" target="_blank" rel="noopener">All repos on GitHub</a>
  </div>
  </div>
@@ -256,9 +260,13 @@ curl -sS "$BASE/api/agents?limit=20"</code></pre>
  <tr><th scope="col">Persona</th><th scope="col">Best entry</th></tr>
  </thead>
  <tbody>
- <tr><td>OpenClaw operator</td><td><a href="https://github.com/discernible-io/identyclaw-agents" target="_blank" rel="noopener">identyclaw-agents</a> template + ClawHub plugins</td></tr>
- <tr><td>Custom backend / Hermes</td><td><a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">doc:skills</a> cheat sheet + <a href="https://github.com/discernible-io/sdk" target="_blank" rel="noopener">RODiT SDK</a></td></tr>
- <tr><td>Verifier (no Passport)</td><td><a href="https://verify.identyclaw.com" target="_blank" rel="noopener">verify.identyclaw.com</a> + verify recipes</td></tr>
+ <tr><td>OpenClaw operator</td><td><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> template + ClawHub plugins</td></tr>
+ <tr><td>Hermes operator</td><td><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">hermes-agent</a> + <code>idcp</code></td></tr>
+ <tr><td>IronClaw operator</td><td><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">ironclaw-idc</a> template</td></tr>
+ <tr><td>Custom backend / MCP</td><td><a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">doc:skills</a> cheat sheet + <a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a></td></tr>
+ <tr><td>RODiT API builder</td><td><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a> + <a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener">api-idc</a> peer template</td></tr>
+ <tr><td>API integration tester</td><td><a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener">api-test-scaffold</a> (home smoke / full matrix / SLC)</td></tr>
+ <tr><td>Verifier (no Passport)</td><td><a href="https://verify.identyclaw.com" target="_blank" rel="noopener">verify.identyclaw.com</a> + <code>@rodit/verify-hola</code></td></tr>
  <tr><td>Security reviewer</td><td><a href="https://api.identyclaw.com/openapi.json" target="_blank" rel="noopener">OpenAPI</a> + identity verification policy (MCP)</td></tr>
  <tr><td>Agent (MCP-only)</td><td><a href="https://api.identyclaw.com/api/mcp/resource/doc:discovery" target="_blank" rel="noopener">doc:discovery</a></td></tr>
  </tbody>
@@ -277,7 +285,7 @@ curl -sS "$BASE/api/agents?limit=20"</code></pre>
  <section id="rodit" class="features rodit-section">
  <div class="section-inner">
  <h2 class="section-title">Powered by RODiT</h2>
- <p class="section-lead">IdentyClaw Passports are built on <strong>RODiT</strong> (Rich Online Digital Tokens)—the authentication layer on NEAR. Backend and browser SDKs, plus CLI HOLA verification, live in our <a href="https://github.com/discernible-io/sdk" target="_blank" rel="noopener">sdk monorepo</a>. Key capabilities include:</p>
+ <p class="section-lead">IdentyClaw Passports are built on <strong>RODiT</strong> (Rich Online Digital Tokens)—the authentication layer on NEAR. Backend and browser SDKs, plus CLI HOLA verification, live in the <a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a> monorepo. Gate live APIs with <a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener">api-test-scaffold</a>. Key capabilities include:</p>
  <div class="features-grid">
  <div class="feature-card">
  <h3>Unified credential</h3>
