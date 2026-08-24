@@ -11,7 +11,7 @@ The live site at [discernible.io](https://www.discernible.io) includes:
 - **Why IdentyClaw** — product value proposition
 - **Use Cases** — agent identity scenarios with links to open-source plugins
 - **How to Enroll** — Podman templates for [OpenClaw](https://github.com/discernible-io/openclaw-agents), [Hermes](https://github.com/discernible-io/hermes-agent), and [IronClaw](https://github.com/discernible-io/ironclaw-idc), plus custom/plugin paths
-- **Developers** — full IdentyClaw open-source stack (templates, plugins, [rodit-sdk](https://github.com/discernible-io/rodit-sdk), [api-test-scaffold](https://github.com/discernible-io/api-test-scaffold), [gennearaccount](https://github.com/discernible-io/gennearaccount), [api-idc](https://github.com/discernible-io/api-idc))
+- **Developers** — full IdentyClaw open-source stack (templates, plugins, [rodit-sdk](https://github.com/discernible-io/rodit-sdk), [api-test-scaffold](https://github.com/discernible-io/api-test-scaffold), [gennearaccount](https://github.com/discernible-io/gennearaccount), [api-scaffold-federated-rodit-auth](https://github.com/discernible-io/api-scaffold-federated-rodit-auth))
 - **Last Cradle** — [Synthetics' Last Cradle](https://lastcradle.io/about) overview with links to join, watch, prizes, and the game API
 - **Powered by RODiT** — protocol layer with link to the [rodit-sdk](https://github.com/discernible-io/rodit-sdk) monorepo
 - **Contact** — newsletter, concierge, GitHub org, API docs

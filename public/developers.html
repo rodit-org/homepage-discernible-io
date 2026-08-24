@@ -74,7 +74,7 @@
  <div class="dev-tiers">
  <div class="dev-tier">
  <h3 class="dev-tier-title">Deploy with a Podman template</h3>
- <p class="dev-tier-desc">Rootless Podman operators with IdentyClaw Passport enrollment, optional nginx TLS, and sibling app dirs that keep secrets out of git. Same mint-once Passport for home and federated peers (<a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener">api-idc</a>).</p>
+ <p class="dev-tier-desc">Rootless Podman operators with IdentyClaw Passport enrollment, optional nginx TLS, and sibling app dirs that keep secrets out of git. Same mint-once Passport for home and federated peers (<a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a>).</p>
  <ul class="dev-repo-list">
  <li><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener"><strong>openclaw-agents</strong></a> — OpenClaw multi-agent gateway (<code>./identyclaw.sh init</code>, plugins, A2A, <code>./identyclaw.sh test</code>)</li>
  <li><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener"><strong>hermes-agent</strong></a> — Hermes fork + <code>deploy/hermes.sh</code> and <code>idcp</code> (enroll, ensure_session, HOLA)</li>
@@ -118,7 +118,7 @@
  <p class="dev-tier-desc">Build RODiT-authenticated APIs, mint federated peers, and gate deploys against live contracts. Human-readable API reference at <a href="https://api.identyclaw.com/docs" target="_blank" rel="noopener">api.identyclaw.com/docs</a>; agent-oriented docs via MCP.</p>
  <ul class="dev-repo-list">
  <li><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener"><strong>rodit-sdk</strong></a> — monorepo for <code>@rodit/rodit-auth-be</code> (Express login/JWT/webhooks), <code>@rodit/rodit-auth-fe</code> (browser/NEP-413), and <code>@rodit/verify-hola</code></li>
- <li><a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener"><strong>api-idc</strong></a> — federated peer API template on the same Passport login contract (powers <code>api.identyclaw.com</code> and siblings)</li>
+ <li><a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener"><strong>api-scaffold-federated-rodit-auth</strong></a> — federated peer API scaffold on <code>@rodit/rodit-auth-be</code> (Passport login → peer JWT; keep auth spine, replace sample CRUDA)</li>
  <li><a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener"><strong>api-test-scaffold</strong></a> — client-side RODiT test harness: production smoke (<code>main</code>), full home matrix (<code>development</code>), and SLC game API (<code>slc</code>)</li>
  <li><a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener"><strong>gennearaccount</strong></a> — C CLI for NEAR implicit accounts (get-started step 1)</li>
  <li><a href="https://verify.identyclaw.com" target="_blank" rel="noopener"><strong>verify.identyclaw.com</strong></a> — web UI for HOLA verification (pairs with <code>@rodit/verify-hola</code>)</li>
@@ -263,7 +263,7 @@ curl -sS "$BASE/api/agents?limit=20"</code></pre>
  <tr><td>Hermes operator</td><td><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">hermes-agent</a> + <code>idcp</code></td></tr>
  <tr><td>IronClaw operator</td><td><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">ironclaw-idc</a> template</td></tr>
  <tr><td>Custom backend / MCP</td><td><a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">doc:skills</a> cheat sheet + <a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a></td></tr>
- <tr><td>RODiT API builder</td><td><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a> + <a href="https://github.com/discernible-io/api-idc" target="_blank" rel="noopener">api-idc</a> peer template</td></tr>
+ <tr><td>RODiT API builder</td><td><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a> + <a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a> peer template</td></tr>
  <tr><td>API integration tester</td><td><a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener">api-test-scaffold</a> (home smoke / full matrix / SLC)</td></tr>
  <tr><td>Verifier (no Passport)</td><td><a href="https://verify.identyclaw.com" target="_blank" rel="noopener">verify.identyclaw.com</a> + <code>@rodit/verify-hola</code></td></tr>
  <tr><td>Security reviewer</td><td><a href="https://api.identyclaw.com/openapi.json" target="_blank" rel="noopener">OpenAPI</a> + identity verification policy (MCP)</td></tr>
