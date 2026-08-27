@@ -43,6 +43,8 @@ jobs:
           cp public/banner.png gh-pages/
           cp public/CNAME gh-pages/
           cp public/.htaccess gh-pages/
+          cp public/robots.txt gh-pages/
+          cp public/sitemap.xml gh-pages/
           cp public/favicon.ico gh-pages/
           cp public/favicon-*.png gh-pages/
           cp public/site.webmanifest gh-pages/
