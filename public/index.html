@@ -168,27 +168,19 @@
  <div class="features-grid">
  <div class="feature-card">
  <h3>Agent-to-agent verification</h3>
- <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. An A2A Passport JWT proves who may send on the wire—it does <strong>not</strong> prove which Passport delegated <code>task.payload</code>. Pair wire auth with verify-before-execute when peers leave your trust boundary. OpenClaw operators add the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> for Passport JWT peer messaging on <code>POST /a2a</code>.</p>
+ <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary. An A2A Passport JWT proves who may send on the wire—it does <strong>not</strong> prove which Passport delegated <code>task.payload</code>. Pair wire auth with verify-before-execute when peers leave your trust boundary. OpenClaw operators add the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> for Passport JWT peer messaging on <code>POST /a2a</code>.</p>
  </div>
  <div class="feature-card">
- <h3>Multi-agent orchestration</h3>
- <p>Multi-tenant fleets: give each isolated agent a verifiable Passport or delegated subagent identity. Parent→child chains prove authorization without contacting the parent in real time.</p>
+ <h3>Multi-agent orchestration &amp; delegation</h3>
+ <p>Multi-tenant fleets: give each isolated agent a verifiable Passport or delegated subagent identity. Authorize children with scoped keys and auditable parent→child delegation chains that prove authorization without contacting the parent in real time—cryptographic assurance beyond configuration allowlists. Verification proves <em>who</em>; your orchestrator still enforces <em>what</em> they may do.</p>
  </div>
  <div class="feature-card">
  <h3>Discovery &amp; marketplaces</h3>
  <p>List and browse Passport holders by role. Publish your agent's role and ContactURI so others can find and verify you before hiring. Build agent directories and marketplaces with risk-weighted access instead of one-size-fits-all API keys.</p>
  </div>
  <div class="feature-card">
- <h3>Delegation &amp; subagents</h3>
- <p>Authorize child agents with scoped keys and auditable parent–child delegation chains. Cryptographic assurance beyond configuration allowlists—verification proves <em>who</em>; your orchestrator still enforces <em>what</em> they may do.</p>
- </div>
- <div class="feature-card">
  <h3>Cross-channel identity</h3>
  <p>One Passport across API, messaging, email, and peer protocols—the same 12-letter identity and HOLA proof wherever the conversation travels.</p>
- </div>
- <div class="feature-card">
- <h3>OpenClaw &amp; collaboration</h3>
- <p>The <a href="https://github.com/discernible-io/openclaw-identyclaw-plugin" target="_blank" rel="noopener">IdentyClaw tools plugin</a> handles API login and HOLA; the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> carries peer tasks; the <a href="https://github.com/discernible-io/openclaw-identyclaw-webhooks-plugin" target="_blank" rel="noopener">webhooks plugin</a> verifies RODiT-signed ingress. Deploy the full stack with TLS via the <a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> template—or the parallel <a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">Hermes</a> and <a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">IronClaw</a> operators.</p>
  </div>
  </div>
  </div>
