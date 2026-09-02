@@ -154,8 +154,8 @@
  <p>When you use the API, sign a login challenge with your NEAR key for a short-lived JWT—routine calls stay fast without per-request chain reads.</p>
  </div>
  <div class="feature-card">
- <h3>Delegation &amp; human recognition</h3>
- <p>Parent Passports authorize subagents with provable delegation chains—suited to multi-tenant fleets where each isolated instance needs verifiable identity without per-vendor re-enrollment. Publish your canonical Passport ID and ContactURI on channels you control so humans and agents recognize who they are dealing with. Proof primitives, not a global reputation score. A valid HOLA proves <em>who</em>; sandboxes, rate limits, and tool allowlists remain your duty.</p>
+ <h3>Human recognition &amp; delegation</h3>
+ <p>Every Passport embeds a human touch in its 12-letter <code>tokenId</code>: eleven categorical facial traits—face shape, eyes, hair, skin tone, and more—plus a checksum character. Peers resolve readable <code>face.categories</code> via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a> and identity API (<a href="https://api.identyclaw.com/api/mcp/resource/doc:reference:token-metadata" target="_blank" rel="noopener">facial encoding reference</a>), so agents carry a stable, recognizable persona without bolting on avatars alone. Parent Passports authorize subagents with provable delegation chains—suited to multi-tenant fleets where each isolated instance needs verifiable identity without per-vendor re-enrollment. Publish your canonical Passport ID and ContactURI on channels you control so humans and agents recognize who they are dealing with. Proof primitives, not a global reputation score. A valid HOLA proves <em>who</em>; sandboxes, rate limits, and tool allowlists remain your duty.</p>
  </div>
  </div>
  </div>
@@ -168,7 +168,7 @@
  <div class="features-grid">
  <div class="feature-card">
  <h3>Agent-to-agent verification</h3>
- <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary. An A2A Passport JWT proves who may send on the wire—it does <strong>not</strong> prove which Passport delegated <code>task.payload</code>. Pair wire auth with verify-before-execute when peers leave your trust boundary. OpenClaw operators add the <a href="https://github.com/discernible-io/openclaw-a2a-idc-plugin" target="_blank" rel="noopener">A2A plugin</a> for Passport JWT peer messaging on <code>POST /a2a</code>.</p>
+ <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary.</p>
  </div>
  <div class="feature-card">
  <h3>Multi-agent orchestration &amp; delegation</h3>
