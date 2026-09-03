@@ -128,19 +128,19 @@
  <div class="features-grid">
  <div class="feature-card">
  <h3>Many-to-many agent collaboration</h3>
- <p>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports, one per agent. Webhooks face the same pairwise trap in the same scenario: 1 million peer-pair HMAC shared secrets—or zero with a Passport, as they are digitally signed in origin. Identity scales linearly, not geometrically.</p>
+ <p>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports, one per agent. Webhooks face the same pairwise trap in the same scenario: 1 million peer-pair HMAC shared secrets—or the very same Passport you already have, as they are digitally signed in origin. Identity scales linearly, not geometrically.</p>
  </div>
  <div class="feature-card">
  <h3>Facial ID</h3>
- <p>Every Passport’s 12-letter <code>tokenId</code> encodes facial traits peers can resolve as a readable persona via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a>—a personable, immediately recognizable identity useful for interfacing with humans, not just bolting on avatars. Example: <code>chsjlpchbngh</code> resolves to a feminine, square-faced, East-Asian senior with bow-shaped lips and freckled, ruddy skin—traits a human can picture from the ID alone.</p>
+ <p>Every Passport’s 12-letter <code>tokenId</code> encodes facial traits peers can resolve as a readable persona via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a>—a personable, immediately recognizable identity useful for interfacing with humans, not just bolting on avatars. Example: <code>chsjlpchbngh</code> resolves to a feminine, square-faced, East-Asian senior with bow-shaped lips and freckled, ruddy skin—traits a human can recognize.</p>
  </div>
  <div class="feature-card">
  <h3>Sovereign</h3>
- <p>Your NEAR account holds and controls the Passport. Signing keys stay with you—not in a central identity database, not attached to any provider. You mint your identity; you do not register with IdentyClaw to exist. Persistent identity outlives any single key: rotate via <code>rodit_transfer</code> to a new wallet or transfer custody on your schedule while the Passport entity continues.</p>
+ <p>Your NEAR account holds and controls the Passport. Signing keys stay with you—not in a central identity database, not attached to any provider. You mint your identity; you do not register with IdentyClaw to exist. Change key pair as often as you like while keeping the same persistent identity peers can verify.</p>
  </div>
  <div class="feature-card">
  <h3>Multi-channel</h3>
- <p>One Passport across API, messaging, email, and peer protocols—not bound to any one address or URL. <strong>HOLA</strong> proofs are compact, signed strings you can embed in API payloads, email, Telegram, WhatsApp, Signal, Discord—or, if you prefer, Morse-encoded drums. Redeploy or change TLS endpoints? Update Passport metadata once—peers that resolve by <code>tokenId</code> keep working without re-sharing secrets.</p>
+ <p>One Passport across API, messaging, email, and peer protocols—not bound to any one address or URL. <strong>HOLA</strong> proofs are compact, signed strings you can embed in API payloads, email, Telegram, WhatsApp, Signal, Discord—or, if you prefer, Morse-encoded drums.</p>
  </div>
  </div>
  </div>
@@ -149,7 +149,7 @@
  <section id="get-started" class="about enroll-section">
  <div class="section-inner">
  <h2 class="section-title">Get Started</h2>
- <p class="section-lead">Mint a Passport <strong>once</strong> on NEAR—you do not register with IdentyClaw to exist. The Passport <em>is</em> the credential for <a href="https://api.identyclaw.com" target="_blank" rel="noopener">IdentyClaw home</a> and any federated peer built from <a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a> (no vendor API keys). Pick a rootless Podman template below; ClawHub plugins, SDKs, and API docs are on the <a href="developers.html">Developers</a> page. Enrollment contract: <a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><code>/.well-known/enrollment</code></a>.</p>
+ <p class="section-lead">Mint a Passport once on NEAR. Pick a rootless Podman template below.</p>
 
  <div class="enroll-paths">
  <div class="enroll-path">
