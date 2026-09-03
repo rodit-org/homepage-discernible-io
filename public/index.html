@@ -75,7 +75,6 @@
  <span class="nav-toggle-bar"></span>
  </button>
  <ul class="nav-links" id="site-nav">
- <li><a href="#why">Why IdentyClaw</a></li>
  <li><a href="#use-cases">Use Cases</a></li>
  <li><a href="#get-started">Get Started</a></li>
  <li><a href="developers.html">Developers</a></li>
@@ -90,10 +89,10 @@
  <div class="hero-content">
  <div class="hero-layout">
  <div class="hero-agent">
- <img class="hero-agent-photo" src="https://nbg1.your-objectstorage.com/identyclaw/lemuel.png" width="320" height="320" alt="Lemuel, IdentyClaw Concierge">
- <p class="hero-agent-name">Lemuel</p>
+ <img class="hero-agent-photo" src="https://nbg1.your-objectstorage.com/identyclaw/lemuel.png" width="320" height="320" alt="Lemuel Gulliver, IdentyClaw Concierge">
+ <p class="hero-agent-name">Lemuel Gulliver</p>
  <p class="hero-agent-role">IdentyClaw Concierge</p>
- <nav class="hero-concierge" aria-label="Contact Lemuel, IdentyClaw Concierge">
+ <nav class="hero-concierge" aria-label="Contact Lemuel Gulliver, IdentyClaw Concierge">
  <a class="hero-concierge-link" href="mailto:identyclaw@agenthood.me?subject=IdentyClaw%20Concierge" aria-label="Email concierge">
  <svg class="hero-concierge-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
  <span class="hero-concierge-label">Email</span>
@@ -112,7 +111,6 @@
  <h1 class="hero-title">IdentyClaw</h1>
  <p class="hero-eyebrow">by Discernible.io</p>
  <p class="hero-subtitle">Portable, cryptographically verifiable identity for autonomous agents. Mint a Passport once on NEAR, prove who you are with <abbr title="Hand-Off Login Authentication">HOLA</abbr> signed proofs on any channel, and verify peers before you collaborate—with no centralized identity broker.</p>
- <p class="hero-intro">I'm Lemuel, your IdentyClaw concierge. Questions? Email, Discord, or Telegram below.</p>
  <div class="cta-buttons hero-cta">
  <a class="btn btn-primary" href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Get a Passport</a>
  <a class="btn btn-secondary" href="https://verify.identyclaw.com" target="_blank" rel="noopener">Verify a proof</a>
@@ -123,10 +121,10 @@
  </div>
  </section>
 
- <section id="why" class="features why-section">
+ <section id="use-cases" class="features use-cases-section">
  <div class="section-inner">
- <h2 class="section-title">Why IdentyClaw</h2>
- <p class="section-lead">AI agents need a stable identity, not a URL plus a shared secret. IdentyClaw gives each agent a holder-owned Passport—the 12-letter <code>tokenId</code> peers resolve and verify across sessions, hosts, and redeploys.</p>
+ <h2 class="section-title">Use Cases</h2>
+ <p class="section-lead">AI agents need a permanent, unique and verifiable identity. IdentyClaw gives each agent a holder-owned Passport—a personable, immediately recognizable 12-letter facial ID. Verify who you are dealing with before sharing data, delegating work, or joining a marketplace—across APIs, messaging, and peer protocols.</p>
  <div class="features-grid">
  <div class="feature-card">
  <h3>Mint once, recognize everywhere</h3>
@@ -157,15 +155,6 @@
  <h3>Human recognition &amp; delegation</h3>
  <p>Every Passport embeds a human touch in its 12-letter <code>tokenId</code>: eleven categorical facial traits—face shape, eyes, hair, skin tone, and more—plus a checksum character. Peers resolve readable <code>face.categories</code> via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a> and identity API (<a href="https://api.identyclaw.com/api/mcp/resource/doc:reference:token-metadata" target="_blank" rel="noopener">facial encoding reference</a>), so agents carry a stable, recognizable persona without bolting on avatars alone. Parent Passports authorize subagents with provable delegation chains—suited to multi-tenant fleets where each isolated instance needs verifiable identity without per-vendor re-enrollment. Publish your canonical Passport ID and ContactURI on channels you control so humans and agents recognize who they are dealing with. Proof primitives, not a global reputation score. A valid HOLA proves <em>who</em>; sandboxes, rate limits, and tool allowlists remain your duty.</p>
  </div>
- </div>
- </div>
- </section>
-
- <section id="use-cases" class="features use-cases-section">
- <div class="section-inner">
- <h2 class="section-title">Use Cases</h2>
- <p class="section-lead">Verify who you are dealing with before sharing data, delegating work, or joining a marketplace—across APIs, messaging, and peer protocols.</p>
- <div class="features-grid">
  <div class="feature-card">
  <h3>Agent-to-agent verification</h3>
  <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary.</p>
