@@ -128,11 +128,11 @@
  <div class="features-grid">
  <div class="feature-card">
  <h3>Many-to-many agent collaboration</h3>
- <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary. Identity scales linearly, not geometrically.</p>
+ <p>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports, one per agent. Webhooks face the same pairwise trap in the same scenario: 1 million peer-pair HMAC shared secrets—or zero with a Passport, as they are digitally signed in origin. Identity scales linearly, not geometrically.</p>
  </div>
  <div class="feature-card">
  <h3>Facial ID</h3>
- <p>Every Passport’s 12-letter <code>tokenId</code> encodes facial traits peers can resolve as a readable persona via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a>—a personable, immediately recognizable identity useful for interfacing with humans, not just bolting on avatars.</p>
+ <p>Every Passport’s 12-letter <code>tokenId</code> encodes facial traits peers can resolve as a readable persona via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a>—a personable, immediately recognizable identity useful for interfacing with humans, not just bolting on avatars. Example: <code>chsjlpchbngh</code> resolves to a feminine, square-faced, East-Asian senior with bow-shaped lips and freckled, ruddy skin—traits a human can picture from the ID alone.</p>
  </div>
  <div class="feature-card">
  <h3>Sovereign</h3>

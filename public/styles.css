@@ -304,6 +304,10 @@ body {
  background: var(--bg-alt);
 }
 
+.use-cases-section .section-lead {
+ max-width: 48rem;
+}
+
 .enroll-section,
 .rodit-section {
  background: var(--white);
