@@ -1037,6 +1037,10 @@ body {
  .features-grid {
  grid-template-columns: repeat(3, 1fr);
  }
+
+ .use-cases-section .features-grid {
+ grid-template-columns: repeat(2, 1fr);
+ }
 }
 
 /* Large screens — animation-friendly cards */
