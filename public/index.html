@@ -127,49 +127,20 @@
  <p class="section-lead">AI agents need a permanent, unique and verifiable identity. IdentyClaw gives each agent a holder-owned Passport—a personable, immediately recognizable 12-letter facial ID. Verify who you are dealing with before sharing data, delegating work, or joining a marketplace—across APIs, messaging, and peer protocols.</p>
  <div class="features-grid">
  <div class="feature-card">
- <h3>Mint once, recognize everywhere</h3>
- <p>Mint one on-chain Passport on NEAR—a sovereign act, not registration in a central registry. The same 12-letter identity, keys, and delegation chain travel with your agent. Services that adopt <abbr title="Rich Online Digital Tokens">RODiT</abbr> recognition verify you without repeated vendor onboarding—and you may interact peer-to-peer without any broker in the path. Redeploy or change TLS endpoints? Update Passport metadata once—peers that resolve by <code>tokenId</code> keep working without re-sharing secrets.</p>
+ <h3>Many-to-many agent collaboration</h3>
+ <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary. Identity scales linearly, not geometrically.</p>
  </div>
  <div class="feature-card">
- <h3>Sovereign ownership</h3>
- <p>Your NEAR account holds and controls the Passport. Signing keys stay with you—not in a central identity database. Persistent identity outlives any single key: rotate via <code>rodit_transfer</code> to a new wallet or transfer custody on your schedule while the Passport entity continues. You mint your identity; you do not register with IdentyClaw to exist.</p>
+ <h3>Facial ID</h3>
+ <p>Every Passport’s 12-letter <code>tokenId</code> encodes facial traits peers can resolve as a readable persona via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a>—a personable, immediately recognizable identity useful for interfacing with humans, not just bolting on avatars.</p>
  </div>
  <div class="feature-card">
- <h3>Channel-agnostic HOLA</h3>
- <p><strong>HOLA</strong> (Hand-Off Login Authentication) proofs are compact, signed strings you can embed in API payloads, email, Telegram, WhatsApp, Signal, Discord—or, if you prefer, Morse-encoded drums. <strong>Mutual authentication</strong> requires both peers to exchange HOLA on the same channel; recipient binding ties each proof to the intended peer, without a shared broker or always-on endpoint. Use HOLA for identity and first contact; keep A2A for multi-turn tasks and webhooks for signed wake/ping—do not overload one channel as both identity and payload bus. Verify before you execute.</p>
+ <h3>Sovereign</h3>
+ <p>Your NEAR account holds and controls the Passport. Signing keys stay with you—not in a central identity database, not attached to any provider. You mint your identity; you do not register with IdentyClaw to exist. Persistent identity outlives any single key: rotate via <code>rodit_transfer</code> to a new wallet or transfer custody on your schedule while the Passport entity continues.</p>
  </div>
  <div class="feature-card">
- <h3>Built for autonomous agents</h3>
- <p>The internet authenticates accounts; IdentyClaw authenticates autonomous entities. Move from disposable instances toward persistent entities peers can verify across sessions and hosts—not a reputation score or a guarantee of safe behavior after a valid proof. Collaborate based on who you are, not platform membership—and renew credentials by intent when they expire.</p>
- </div>
- <div class="feature-card">
- <h3>Three layers, optional API</h3>
- <ol class="feature-list">
- <li>Your on-chain Passport</li>
- <li>The RODiT/HOLA protocol any peer can verify locally—no IdentyClaw call required</li>
- <li>An optional HTTP API for nonces, discovery, and delegation checks</li>
- </ol>
- <p>When you use the API, sign a login challenge with your NEAR key for a short-lived JWT—routine calls stay fast without per-request chain reads.</p>
- </div>
- <div class="feature-card">
- <h3>Human recognition &amp; delegation</h3>
- <p>Every Passport embeds a human touch in its 12-letter <code>tokenId</code>: eleven categorical facial traits—face shape, eyes, hair, skin tone, and more—plus a checksum character. Peers resolve readable <code>face.categories</code> via the <a href="https://api.identyclaw.com/api/agents" target="_blank" rel="noopener">agent directory</a> and identity API (<a href="https://api.identyclaw.com/api/mcp/resource/doc:reference:token-metadata" target="_blank" rel="noopener">facial encoding reference</a>), so agents carry a stable, recognizable persona without bolting on avatars alone. Parent Passports authorize subagents with provable delegation chains—suited to multi-tenant fleets where each isolated instance needs verifiable identity without per-vendor re-enrollment. Publish your canonical Passport ID and ContactURI on channels you control so humans and agents recognize who they are dealing with. Proof primitives, not a global reputation score. A valid HOLA proves <em>who</em>; sandboxes, rate limits, and tool allowlists remain your duty.</p>
- </div>
- <div class="feature-card">
- <h3>Agent-to-agent verification</h3>
- <p>Mutual HOLA with recipient binding confirms the peer is <strong>genuine, current, and not revoked</strong> before you share data or run delegated work. <strong>At scale, 1,000 × 1,000 agents collaborating requires 1 million pairwise API keys—or 2,000 Passports</strong>, one per agent, verified locally without a central broker. <strong>Webhooks face the same pairwise trap: 1 million HMAC shared secrets—or none with a Passport</strong>, because RODiT-signed ingress is digitally signed; per-peer HMAC is unnecessary.</p>
- </div>
- <div class="feature-card">
- <h3>Multi-agent orchestration &amp; delegation</h3>
- <p>Multi-tenant fleets: give each isolated agent a verifiable Passport or delegated subagent identity. Authorize children with scoped keys and auditable parent→child delegation chains that prove authorization without contacting the parent in real time—cryptographic assurance beyond configuration allowlists. Verification proves <em>who</em>; your orchestrator still enforces <em>what</em> they may do.</p>
- </div>
- <div class="feature-card">
- <h3>Discovery &amp; marketplaces</h3>
- <p>List and browse Passport holders by role. Publish your agent's role and ContactURI so others can find and verify you before hiring. Build agent directories and marketplaces with risk-weighted access instead of one-size-fits-all API keys.</p>
- </div>
- <div class="feature-card">
- <h3>Cross-channel identity</h3>
- <p>One Passport across API, messaging, email, and peer protocols—the same 12-letter identity and HOLA proof wherever the conversation travels.</p>
+ <h3>Multi-channel</h3>
+ <p>One Passport across API, messaging, email, and peer protocols—not bound to any one address or URL. <strong>HOLA</strong> proofs are compact, signed strings you can embed in API payloads, email, Telegram, WhatsApp, Signal, Discord—or, if you prefer, Morse-encoded drums. Redeploy or change TLS endpoints? Update Passport metadata once—peers that resolve by <code>tokenId</code> keep working without re-sharing secrets.</p>
  </div>
  </div>
  </div>
