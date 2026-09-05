@@ -149,7 +149,7 @@
  <section id="get-started" class="about enroll-section">
  <div class="section-inner">
  <h2 class="section-title">Get Started</h2>
- <p class="section-lead">Mint a Passport once on NEAR. Pick a rootless Podman template below.</p>
+ <p class="section-lead">Mint a Passport once on NEAR. Pick OpenClaw or Hermes (rootless Podman) or IronClaw (host <code>idcp</code> / <code>builtin.idcp</code>).</p>
 
  <div class="enroll-paths">
  <div class="enroll-path">
@@ -188,27 +188,27 @@
  </div>
  <div class="enroll-path">
  <h3 class="enroll-path-title">Hermes</h3>
- <p class="enroll-path-lead"><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">hermes-agent</a> — Nous Hermes runtime with Podman operator and <code>idcp</code> Passport CLI.</p>
+ <p class="enroll-path-lead"><a href="https://github.com/discernible-io/hermes-agents" target="_blank" rel="noopener">hermes-agents</a> — Nous Hermes runtime with Podman operator and <code>idcp</code> Passport CLI.</p>
  <ol class="enroll-steps">
  <li>
  <span class="step-num">1</span>
  <div>
  <h3>Install the template</h3>
- <p>Clone the fork, <code>cd deploy</code>, then <code>./hermes.sh init</code>, <code>setup</code>, <code>start</code>, and <code>idcp-install</code>. Prefer this path over the upstream stock installer when you want IdentyClaw.</p>
+ <p>Clone the fork, <code>cd deploy</code>, then <code>./hermes.sh init</code>, <code>./hermes.sh setup</code>, and <code>./hermes.sh start</code> as separate commands. Prefer this path over the upstream stock installer when you want IdentyClaw.</p>
  </div>
  </li>
  <li>
  <span class="step-num">2</span>
  <div>
  <h3>Enroll a NEAR account</h3>
- <p>Run <code>./hermes.sh idcp enroll</code>. It writes credentials under <code>~/hermes-agents-app/secrets/near-credentials/</code> and prints the hex <code>implicit_account_id</code>.</p>
+ <p><code>setup</code> includes enroll. To resume Passport only: <code>./hermes.sh idcp-setup</code> or <code>./hermes.sh idcp enroll</code>. Credentials land under <code>~/hermes-agents-app/secrets/near-credentials/</code> with a hex <code>implicit_account_id</code>.</p>
  </div>
  </li>
  <li>
  <span class="step-num">3</span>
  <div>
  <h3>Craft the Passport</h3>
- <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> with that hex id as the recipient. Paying wallet and agent key file stay separate.</p>
+ <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> with that hex id as the recipient. Paying wallet and agent key file stay separate. <code>setup</code> / <code>idcp-setup</code> pause for this step.</p>
  </div>
  </li>
  <li>
@@ -222,34 +222,34 @@
  </div>
  <div class="enroll-path">
  <h3 class="enroll-path-title">IronClaw</h3>
- <p class="enroll-path-lead"><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">ironclaw-idc</a> — privacy-focused Agent OS with the same IdentyClaw Podman / Passport enrollment spine.</p>
+ <p class="enroll-path-lead"><a href="https://github.com/discernible-io/ironclaw-agents/tree/feat/identyclaw-passport" target="_blank" rel="noopener">ironclaw-agents</a> — privacy-focused Agent OS with host-side Passport via <code>deploy/identyclaw</code> and <code>builtin.idcp</code>.</p>
  <ol class="enroll-steps">
  <li>
  <span class="step-num">1</span>
  <div>
- <h3>Install the template</h3>
- <p>Clone the Discernible IronClaw fork and follow its deploy operator for rootless Podman (TLS and webhooks as documented in-repo).</p>
+ <h3>Install the host helper</h3>
+ <p>Clone the <code>feat/identyclaw-passport</code> branch, then <code>cd deploy/identyclaw</code> and <code>npm install --omit=dev</code> (Node 20+). No containers required for Passport.</p>
  </div>
  </li>
  <li>
  <span class="step-num">2</span>
  <div>
- <h3>Create a NEAR implicit account</h3>
- <p>Generate credentials with <a href="https://github.com/discernible-io/gennearaccount" target="_blank" rel="noopener">gennearaccount</a> (or the template’s enroll helper) into persistent secrets storage—mode <code>0600</code>, never in chat.</p>
+ <h3>Enroll a NEAR account</h3>
+ <p>Run <code>./bin/idcp enroll</code>. Keys stay on the host only—mode <code>0600</code>, never paste them into chat.</p>
  </div>
  </li>
  <li>
  <span class="step-num">3</span>
  <div>
  <h3>Craft the Passport</h3>
- <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> to the agent’s 64-char hex account, then activate the home session against <code>api.identyclaw.com</code>.</p>
+ <p>Mint at the <a href="https://purchase.identyclaw.com" target="_blank" rel="noopener">Purchase Portal</a> to the printed <strong>64-char hex</strong> recipient.</p>
  </div>
  </li>
  <li>
  <span class="step-num">4</span>
  <div>
- <h3>Federated peers</h3>
- <p>Same login contract as the other templates: challenge → sign → peer JWT per <code>apiEndpoint</code>. Shared enrollment detail: <a href="https://api.identyclaw.com/.well-known/enrollment" target="_blank" rel="noopener"><code>/.well-known/enrollment</code></a>.</p>
+ <h3>Home session, then peers</h3>
+ <p><code>./bin/idcp ensure_session</code> and <code>./bin/idcp me</code>. Copy <code>skills/identyclaw</code> into the agent skills dir. For processless agents, start the loopback helper (<code>IDENTYCLAW_HELPER_*</code>) so <code>builtin.idcp</code> can reach it. Peers: <code>idcp … --base &lt;peer&gt;</code>.</p>
  </div>
  </li>
  </ol>

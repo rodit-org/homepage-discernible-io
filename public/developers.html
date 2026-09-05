@@ -91,22 +91,22 @@
  <section id="developers" class="features developers-section">
  <div class="section-inner">
  <h1 class="section-title">Open source agent stack</h1>
- <p class="section-lead">Use your IdentyClaw Passport to verify peer identities with <abbr title="Hand-Off Login Authentication">HOLA</abbr>, or log in to federation-capable APIs without any API key or additional credential. Deploy via a Podman template (OpenClaw, Hermes, or IronClaw) or install plugins and SDKs à la carte. Jump to <a href="#api-docs">API docs</a> or <a href="#rodit">Powered by RODiT</a>.</p>
+ <p class="section-lead">Use your IdentyClaw Passport to verify peer identities with <abbr title="Hand-Off Login Authentication">HOLA</abbr>, or log in to federation-capable APIs without any API key or additional credential. Deploy via OpenClaw or Hermes (Podman) or IronClaw (host <code>idcp</code> / <code>builtin.idcp</code>), or install plugins and SDKs à la carte. Jump to <a href="#api-docs">API docs</a> or <a href="#rodit">Powered by RODiT</a>.</p>
  <div class="dev-tiers">
  <div class="dev-tier">
- <h3 class="dev-tier-title">Deploy with a Podman template</h3>
- <p class="dev-tier-desc">Rootless Podman operators with IdentyClaw Passport enrollment, optional nginx TLS, and sibling app dirs that keep secrets out of git. Same mint-once Passport for home and federated peers (<a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a>).</p>
+ <h3 class="dev-tier-title">Deploy templates</h3>
+ <p class="dev-tier-desc">OpenClaw and Hermes ship rootless Podman operators with sibling app dirs that keep secrets out of git. IronClaw uses a host-side <code>idcp</code> helper and <code>builtin.idcp</code>. Same mint-once Passport for home and federated peers (<a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a>).</p>
  <ul class="dev-repo-list">
  <li><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener"><strong>openclaw-agents</strong></a> — OpenClaw multi-agent gateway (<code>./identyclaw.sh init</code>, plugins, A2A, <code>./identyclaw.sh test</code>)</li>
- <li><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener"><strong>hermes-agent</strong></a> — Hermes fork + <code>deploy/hermes.sh</code> and <code>idcp</code> (enroll, ensure_session, HOLA)</li>
- <li><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener"><strong>ironclaw-idc</strong></a> — IronClaw Agent OS with the same Passport enrollment spine</li>
+ <li><a href="https://github.com/discernible-io/hermes-agents" target="_blank" rel="noopener"><strong>hermes-agents</strong></a> — Hermes fork + <code>deploy/hermes.sh</code> and <code>idcp</code> (<code>setup</code> / <code>idcp-setup</code>, ensure_session, HOLA)</li>
+ <li><a href="https://github.com/discernible-io/ironclaw-agents/tree/feat/identyclaw-passport" target="_blank" rel="noopener"><strong>ironclaw-agents</strong></a> — IronClaw Agent OS with <code>deploy/identyclaw</code> (<code>idcp enroll</code>, <code>builtin.idcp</code>)</li>
  </ul>
  <ol class="enroll-steps dev-deploy-steps">
  <li>
  <span class="step-num">1</span>
  <div>
  <h3>Initialize the template</h3>
- <p>Clone your runtime of choice and run its init (OpenClaw: <code>./identyclaw.sh init</code>; Hermes: <code>./deploy/hermes.sh init</code>).</p>
+ <p>OpenClaw: <code>./identyclaw.sh init</code>. Hermes: <code>./deploy/hermes.sh init</code> then <code>setup</code>. IronClaw: <code>cd deploy/identyclaw &amp;&amp; npm install --omit=dev</code>.</p>
  </div>
  </li>
  <li>
@@ -282,8 +282,8 @@ curl -sS "$BASE/api/agents?limit=20"</code></pre>
  </thead>
  <tbody>
  <tr><td>OpenClaw operator</td><td><a href="https://github.com/discernible-io/openclaw-agents" target="_blank" rel="noopener">openclaw-agents</a> template + ClawHub plugins</td></tr>
- <tr><td>Hermes operator</td><td><a href="https://github.com/discernible-io/hermes-agent" target="_blank" rel="noopener">hermes-agent</a> + <code>idcp</code></td></tr>
- <tr><td>IronClaw operator</td><td><a href="https://github.com/discernible-io/ironclaw-idc" target="_blank" rel="noopener">ironclaw-idc</a> template</td></tr>
+ <tr><td>Hermes operator</td><td><a href="https://github.com/discernible-io/hermes-agents" target="_blank" rel="noopener">hermes-agents</a> + <code>idcp</code></td></tr>
+ <tr><td>IronClaw operator</td><td><a href="https://github.com/discernible-io/ironclaw-agents/tree/feat/identyclaw-passport" target="_blank" rel="noopener">ironclaw-agents</a> + <code>deploy/identyclaw</code></td></tr>
  <tr><td>Custom backend / MCP</td><td><a href="https://api.identyclaw.com/api/mcp/resource/doc:skills" target="_blank" rel="noopener">doc:skills</a> cheat sheet + <a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a></td></tr>
  <tr><td>RODiT API builder</td><td><a href="https://github.com/discernible-io/rodit-sdk" target="_blank" rel="noopener">rodit-sdk</a> + <a href="https://github.com/discernible-io/api-scaffold-federated-rodit-auth" target="_blank" rel="noopener">api-scaffold-federated-rodit-auth</a> peer template</td></tr>
  <tr><td>API integration tester</td><td><a href="https://github.com/discernible-io/api-test-scaffold" target="_blank" rel="noopener">api-test-scaffold</a> (home smoke / full matrix / SLC)</td></tr>
